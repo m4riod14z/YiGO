@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-object LoginController {
+object AuthController {
 
     fun iniciarSesion(correo: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -30,6 +30,19 @@ object LoginController {
                 Log.e("Login", "Error HTTP: ${e.message}", e)
             } catch (e: Exception) {
                 Log.e("Login", "Error general: ${e.message}", e)
+            }
+        }
+    }
+
+    fun cerrarSesion() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                SupabaseService.auth.signOut()
+                Log.d("Logout", "Sesión cerrada correctamente.")
+            } catch (e: HttpRequestException) {
+                Log.e("Logout", "Error HTTP al cerrar sesión: ${e.message}", e)
+            } catch (e: Exception) {
+                Log.e("Logout", "Error general al cerrar sesión: ${e.message}", e)
             }
         }
     }

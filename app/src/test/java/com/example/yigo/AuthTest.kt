@@ -1,6 +1,6 @@
 package com.example.yigo
 
-import com.example.yigo.controller.LoginController
+import com.example.yigo.controller.AuthController
 import org.junit.Test
 
 /**
@@ -15,7 +15,7 @@ class LoginTest {
         val correo = "mariomd2807@gmail.com"
         val password = "test1234"
 
-        LoginController.iniciarSesion(correo, password)
+        AuthController.iniciarSesion(correo, password)
 
         Thread.sleep(8000) //
     }
