@@ -39,18 +39,58 @@ object DonationController {
 
                 val nombreFundacion = donacion.id_fundacion?.let { obtenerNombreFundacion(it) } ?: "No asignada"
                 val tipoAlimento = tiposAlimento[donacion.tipo_alimento_id]?.tipo ?: "No disponible"
+                val calificacion = DonationProcessController.obtenerCalificacion(donacion.id)?.puntuacion
 
                 mapOf(
                     "donacion" to donacion,
                     "nombre_donante" to nombreDonante,
                     "telefono_donante" to usuario.telefono,
                     "nombre_fundacion" to nombreFundacion,
-                    "tipo_alimento" to tipoAlimento
+                    "tipo_alimento" to tipoAlimento,
+                    "calificacion" to calificacion
                 )
             }
 
         } catch (e: Exception) {
             Log.e("DonationController", "Error al obtener donaciones: ${e.message}")
+            emptyList()
+        }
+    }
+
+    suspend fun obtenerTodasLasDonaciones(): List<Map<String, Any?>> {
+        return try {
+            val tiposAlimento = obtenerTiposAlimento().associateBy { it.id }
+            val donaciones = SupabaseService.database
+                .from("donaciones")
+                .select(
+                    columns = Columns.list(
+                        "id, id_donante, imagen_url, estado, id_fundacion, ubicacion_lat, ubicacion_lng, direccion, productos, tipo_alimento_id, descripcion"
+                    )
+                )
+                .decodeList<Donaciones>()
+
+            donaciones.map { donacion ->
+                val usuario = obtenerUsuario(donacion.id_donante)
+                val nombreDonante = when (usuario.tipo) {
+                    "persona" -> obtenerNombrePersona(usuario.id)
+                    "empresa" -> obtenerRazonSocialEmpresa(usuario.id)
+                    else -> "No disponible"
+                }
+
+                val nombreFundacion = donacion.id_fundacion?.let { obtenerNombreFundacion(it) } ?: "No asignada"
+                val tipoAlimento = tiposAlimento[donacion.tipo_alimento_id]?.tipo ?: "No disponible"
+
+                mapOf(
+                    "donacion" to donacion,
+                    "nombre_donante" to nombreDonante,
+                    "telefono_donante" to usuario.telefono,
+                    "tipo_alimento" to tipoAlimento,
+                    "nombre_fundacion" to nombreFundacion
+                )
+            }
+
+        } catch (e: Exception) {
+            Log.e("DonationProcess", "Error al obtener todas las donaciones: ${e.message}")
             emptyList()
         }
     }
