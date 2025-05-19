@@ -108,5 +108,4 @@ object RegisterController {
             false
         }
     }
-
 }

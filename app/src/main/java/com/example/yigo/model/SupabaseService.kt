@@ -11,7 +11,7 @@ object SupabaseService {
     val client: SupabaseClient by lazy {
         createSupabaseClient(
             supabaseUrl = "https://gvnnxnwwnxsnwdrliinh.supabase.co",
-            supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2bm54bnd3bnhzbndkcmxpaW5oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU5MzE2NTksImV4cCI6MjA2MTUwNzY1OX0.qZxtVTUhaQJ7c85zOJzOIYPzj_HGJiAltxm9UAVc0Ag"
+            supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2bm54bnd3bnhzbndkcmxpaW5oIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NTkzMTY1OSwiZXhwIjoyMDYxNTA3NjU5fQ.Yb4nfoWS50fOLJEwyBMfLREIDyWcVucH-lQsUpXo5pQ"
         ) {
             install(io.github.jan.supabase.auth.Auth)
             install(io.github.jan.supabase.postgrest.Postgrest)

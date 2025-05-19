@@ -7,5 +7,6 @@ data class Usuario(
     val id: String,
     val correo: String,
     val telefono: String,
-    val tipo: String
+    val tipo: String,
+    val estado: String = "activo"
 )

@@ -3,8 +3,8 @@ package com.example.yigo.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Persona(
+data class Calificaciones(
     val id: String,
-    val nombre: String,
-    val apellido: String
+    val id_donacion: String,
+    val puntuacion: Int
 )

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_DOCUMENTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,26 +20,101 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YiGO"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+        <activity
+            android:name=".view.EditarFundacionAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".view.EditarPersonaAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".view.EditarEmpresaAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".view.ListaDonacionesAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".view.ListaFundacionesAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".view.ListaDonantesAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".view.MenuAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".view.EditarPerfilFundacion"
+            android:exported="false" />
+        <activity
+            android:name=".view.VerPerfilFundacion"
+            android:exported="false" />
+        <activity
+            android:name=".view.DonacionesCompletadasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.DonacionesPendientesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.DonacionesFundacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MenuFundacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.VerDonacionesEmpresa"
+            android:exported="false" />
+        <activity
+            android:name=".view.VerDonacionesUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".view.MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.VerPerfilEmpresa"
+            android:exported="false" />
+        <activity
+            android:name=".view.VerPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".view.EditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".view.EditarPerfilEmpresa"
+            android:exported="false" />
+        <activity
+            android:name=".view.SelectFoundationActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
             android:name=".view.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.TipoPersona"
+            android:name=".view.Donation"
             android:exported="false" />
         <activity
-            android:name=".view.RegistroUsuario"
+            android:name=".view.Inicio_sesion_usuario"
+            android:exported="false" />
+        <activity
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".view.RegistroFundacion"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.RegistroUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".view.TipoPersona"
             android:exported="false" />
     </application>
 
