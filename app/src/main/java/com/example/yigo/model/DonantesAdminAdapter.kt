@@ -4,13 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yigo.R
 
 class DonantesAdminAdapter(
     private val donantes: List<Map<String, Any?>>,
-    private val onEstadoClick: (Usuario) -> Unit
+    private val onEstadoClick: (Usuario) -> Unit,
+    private val onEditarClick: (Usuario) -> Unit
 ) : RecyclerView.Adapter<DonantesAdminAdapter.DonanteViewHolder>() {
 
     inner class DonanteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -18,6 +20,7 @@ class DonantesAdminAdapter(
         val tvCorreoUsuario: TextView = view.findViewById(R.id.tvCorreoUsuario)
         val tvTelefonoUsuario: TextView = view.findViewById(R.id.tvTelefonoUsuario)
         val tvEstadoUsuario: TextView = view.findViewById(R.id.tvEstadoUsuario)
+        val btnEditarUsuario: ImageButton = view.findViewById(R.id.btnEditarUsuario)
         val btnActivar: Button = view.findViewById(R.id.btnActivarUsuario)
         val btnInactivar: Button = view.findViewById(R.id.btnInactivarUsuario)
     }
@@ -55,6 +58,11 @@ class DonantesAdminAdapter(
         // Acción del botón Inactivar
         holder.btnInactivar.setOnClickListener {
             onEstadoClick(usuario)
+        }
+
+        // Acción del botón Editar
+        holder.btnEditarUsuario.setOnClickListener {
+            onEditarClick(usuario)
         }
     }
 

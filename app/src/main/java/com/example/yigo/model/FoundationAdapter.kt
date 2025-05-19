@@ -1,4 +1,4 @@
-package com.example.yigo.adapter
+package com.example.yigo.model
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yigo.R
-import com.example.yigo.model.Fundacion
 
 class FoundationAdapter(
     private val fundaciones: List<Fundacion>,

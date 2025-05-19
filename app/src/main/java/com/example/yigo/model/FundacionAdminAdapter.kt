@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yigo.R
@@ -15,7 +16,8 @@ import kotlinx.coroutines.launch
 
 class FundacionAdminAdapter(
     private val fundaciones: List<Map<String, Any?>>,
-    private val onEstadoCambiado: () -> Unit
+    private val onEstadoCambiado: () -> Unit,
+    private val onEditarClick: (Usuario) -> Unit
 ) : RecyclerView.Adapter<FundacionAdminAdapter.FundacionViewHolder>() {
 
     inner class FundacionViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,6 +29,7 @@ class FundacionAdminAdapter(
         val tvEstadoFundacion: TextView = view.findViewById(R.id.tvEstadoFundacion)
         val btnActivar: Button = view.findViewById(R.id.btnActivarFundacion)
         val btnDesactivar: Button = view.findViewById(R.id.btnDesactivarFundacion)
+        val btnEditar: ImageButton = view.findViewById(R.id.btnEditarFundacion)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FundacionViewHolder {
@@ -75,6 +78,10 @@ class FundacionAdminAdapter(
                 val resultado = AdminUsersController.alternarEstadoUsuario(usuario.id)
                 if (resultado) onEstadoCambiado()
             }
+        }
+
+        holder.btnEditar.setOnClickListener {
+            onEditarClick(usuario)
         }
     }
 

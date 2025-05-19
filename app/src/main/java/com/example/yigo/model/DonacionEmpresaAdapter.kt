@@ -26,6 +26,7 @@ class DonacionEmpresaAdapter(
         val tvDescripcion: TextView = view.findViewById(R.id.tvDescripcion)
         val ivImagenDonacion: ImageView = view.findViewById(R.id.ivImagenDonacion)
         val btnEliminar: Button = view.findViewById(R.id.btnEliminarDonacion)
+        val tvCalificacion: TextView = view.findViewById(R.id.tvCalificacion)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DonacionViewHolder {
@@ -40,6 +41,7 @@ class DonacionEmpresaAdapter(
         val telefono = data["telefono_donante"] as? String ?: "No disponible"
         val nombreFundacion = data["nombre_fundacion"] as String
         val tipoAlimento = data["tipo_alimento"] as String
+        val calificacion = data["calificacion"] as Int?
 
         holder.tvProductos.text = donacion.productos
         holder.tvEstadoDonacion.text = "Estado: ${donacion.estado}"
@@ -55,6 +57,27 @@ class DonacionEmpresaAdapter(
             .placeholder(R.drawable.placeholder)
             .error(R.drawable.placeholder)
             .into(holder.ivImagenDonacion)
+
+        // Controlar visibilidad del botón y la calificación
+        when (donacion.estado) {
+            "aceptada" -> {
+                holder.btnEliminar.visibility = View.GONE
+                holder.tvCalificacion.visibility = View.GONE
+            }
+            "entregada" -> {
+                holder.btnEliminar.visibility = View.GONE
+                holder.tvCalificacion.visibility = View.VISIBLE
+                holder.tvCalificacion.text = if (calificacion != null) {
+                    "Calificación: $calificacion/5"
+                } else {
+                    "Calificación: No disponible"
+                }
+            }
+            else -> {
+                holder.btnEliminar.visibility = View.VISIBLE
+                holder.tvCalificacion.visibility = View.GONE
+            }
+        }
 
         holder.btnEliminar.setOnClickListener {
             onDeleteClick(donacion)
