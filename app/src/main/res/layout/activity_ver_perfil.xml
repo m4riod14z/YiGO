@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".view.VerPerfil">
+
+    <!-- Título del Perfil -->
+
+    <!-- Título del Correo -->
+
+    <TextView
+        android:id="@+id/Title_Verperfil"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:background="#0bc0c6"
+        android:elevation="4dp"
+        android:text="Ver Perfil"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTituloCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Correo Electrónico"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/Title_Verperfil"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Campo de Correo -->
+    <TextView
+        android:id="@+id/tvCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="correo@ejemplo.com"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloCorreo"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Título del Teléfono -->
+    <TextView
+        android:id="@+id/tvTituloTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Teléfono"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvCorreo"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Campo de Teléfono -->
+    <TextView
+        android:id="@+id/tvTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="123456789"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloTelefono"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Título del Nombre -->
+    <TextView
+        android:id="@+id/tvTituloNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nombre"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTelefono"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Campo de Nombre -->
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Juan"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloNombre"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Título del Apellido -->
+    <TextView
+        android:id="@+id/tvTituloApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Apellido"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvNombre"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Campo de Apellido -->
+    <TextView
+        android:id="@+id/tvApellido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Pérez"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloApellido"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Botón para Editar Perfil -->
+    <Button
+        android:id="@+id/btn_Editarperfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:background="#0bc0c6"
+        android:text="Editar Perfil"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvApellido" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

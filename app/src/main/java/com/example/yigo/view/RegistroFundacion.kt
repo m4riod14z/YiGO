@@ -3,7 +3,11 @@ package com.example.yigo.view
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
@@ -70,6 +74,21 @@ class RegistroFundacion : AppCompatActivity() {
             registrarseButton.isEnabled = isChecked
         }
 
+        // Formatear el texto con HTML para el enlace
+        terminosCheckBox.text = fromHtmlCompat(getString(R.string.terminos_y_condiciones))
+        terminosCheckBox.movementMethod = LinkMovementMethod.getInstance()
+
+
+        // Detectar clic en el enlace de términos y condiciones
+        terminosCheckBox.setOnClickListener {
+            val dialog = TerminosDialogFragment { aceptar ->
+                // Solo si presiona "Aceptar", se marca el CheckBox
+                terminosCheckBox.isChecked = aceptar
+                registrarseButton.isEnabled = aceptar
+            }
+            dialog.show(supportFragmentManager, "TerminosDialog")
+        }
+
         // Listener para el botón de seleccionar RUT
         rutImageButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
@@ -127,7 +146,7 @@ class RegistroFundacion : AppCompatActivity() {
             if (!esContrasenaValida(password)) {
                 Toast.makeText(
                     this,
-                    "La contraseña debe tener mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial",
+                    "La contraseña debe tener minímo 8 caracteres, una mayúscula, minúscula, número y símbolo.",
                     Toast.LENGTH_LONG
                 ).show()
                 return@setOnClickListener
@@ -202,6 +221,15 @@ class RegistroFundacion : AppCompatActivity() {
                     registrarseButton.isEnabled = terminosCheckBox.isChecked
                 }
             }
+        }
+    }
+
+    private fun fromHtmlCompat(source: String): Spanned {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            @Suppress("DEPRECATION")
+            Html.fromHtml(source)
         }
     }
 

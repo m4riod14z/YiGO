@@ -1,7 +1,11 @@
 package com.example.yigo.view
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -41,10 +45,17 @@ class RegistroUsuario : AppCompatActivity() {
         // Inicialmente el botón estará deshabilitado
         registrarseButton.isEnabled = false
 
-        // Listener para el CheckBox
-        terminosCheckBox.setOnCheckedChangeListener { _, isChecked ->
-            // Habilitar o deshabilitar el botón según el estado del CheckBox
-            registrarseButton.isEnabled = isChecked
+        // Formatear el texto con HTML para el enlace
+        terminosCheckBox.text = fromHtmlCompat(getString(R.string.terminos_y_condiciones))
+        terminosCheckBox.movementMethod = LinkMovementMethod.getInstance()
+
+        terminosCheckBox.setOnClickListener {
+            val dialog = TerminosDialogFragment { aceptar ->
+                // Solo si presiona "Aceptar", se marca el CheckBox
+                terminosCheckBox.isChecked = aceptar
+                registrarseButton.isEnabled = aceptar
+            }
+            dialog.show(supportFragmentManager, "TerminosDialog")
         }
 
         // Listener para el botón de registro
@@ -80,7 +91,7 @@ class RegistroUsuario : AppCompatActivity() {
             if (!esContrasenaValida(password)) {
                 Toast.makeText(
                     this,
-                    "La contraseña debe tener mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial",
+                    "La contraseña debe tener minímo 8 caracteres, una mayúscula, minúscula, número y símbolo.",
                     Toast.LENGTH_LONG
                 ).show()
                 return@setOnClickListener
@@ -135,6 +146,15 @@ class RegistroUsuario : AppCompatActivity() {
                     registrarseButton.isEnabled = terminosCheckBox.isChecked
                 }
             }
+        }
+    }
+
+    private fun fromHtmlCompat(source: String): Spanned {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            @Suppress("DEPRECATION")
+            Html.fromHtml(source)
         }
     }
 
