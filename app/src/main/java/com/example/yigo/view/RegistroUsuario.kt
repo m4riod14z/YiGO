@@ -1,5 +1,6 @@
 package com.example.yigo.view
 
+import TerminosDialogFragment
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
