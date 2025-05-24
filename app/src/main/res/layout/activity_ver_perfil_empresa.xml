@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.VerPerfilEmpresa">
+
+    <TextView
+        android:id="@+id/Title_VerperfilEmpresa"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="#0bc0c6"
+        android:text="Ver perfil"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Razón Social -->
+
+    <TextView
+        android:id="@+id/tvTituloRazonSocialEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Razón Social"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Title_VerperfilEmpresa" />
+
+    <TextView
+        android:id="@+id/tvRazonSocialEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sin razón social"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/tvTituloRazonSocialEmpresa"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloRazonSocialEmpresa" />
+
+    <!-- NIT -->
+
+    <TextView
+        android:id="@+id/tvTituloNitEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="NIT"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRazonSocialEmpresa" />
+
+    <TextView
+        android:id="@+id/tvNitEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sin NIT"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/tvTituloNitEmpresa"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloNitEmpresa" />
+
+    <!-- Correo -->
+
+    <TextView
+        android:id="@+id/tvTituloCorreoEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Correo Electrónico"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNitEmpresa" />
+
+    <TextView
+        android:id="@+id/tvCorreoEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sin correo"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/tvTituloCorreoEmpresa"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloCorreoEmpresa" />
+
+    <!-- Teléfono -->
+
+    <TextView
+        android:id="@+id/tvTituloTelefonoEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Teléfono"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCorreoEmpresa" />
+
+    <TextView
+        android:id="@+id/tvTelefonoEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Sin teléfono"
+        android:textColor="#444444"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/tvTituloTelefonoEmpresa"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloTelefonoEmpresa" />
+
+    <!-- Botón Editar -->
+    <Button
+        android:id="@+id/btn_EditarperfilEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="#0bc0c6"
+        android:text="Editar Perfil"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

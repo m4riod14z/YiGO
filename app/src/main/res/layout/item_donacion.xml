@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Imagen -->
+        <ImageView
+            android:id="@+id/ivImagenDonacion"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            android:background="#E0E0E0"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Productos -->
+        <TextView
+            android:id="@+id/tvProductos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Productos"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ivImagenDonacion"
+            app:layout_constraintTop_toTopOf="@id/ivImagenDonacion"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Estado -->
+        <TextView
+            android:id="@+id/tvEstadoDonacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Estado: Publicada"
+            android:textColor="#0bc0c6"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintTop_toBottomOf="@id/tvProductos"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Donante -->
+        <TextView
+            android:id="@+id/tvNombreDonante"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Donante: Nombre del Donante"
+            android:textColor="#444444"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintTop_toBottomOf="@id/tvEstadoDonacion"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Teléfono -->
+        <TextView
+            android:id="@+id/tvTelefonoDonante"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Teléfono: 123456789"
+            android:textColor="#444444"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintTop_toBottomOf="@id/tvNombreDonante"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Fundación -->
+        <TextView
+            android:id="@+id/tvFundacionAsignada"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Fundación: No asignada"
+            android:textColor="#444444"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintTop_toBottomOf="@id/tvTelefonoDonante"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Dirección -->
+        <TextView
+            android:id="@+id/tvDireccion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Dirección: Calle 123"
+            android:textColor="#444444"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintTop_toBottomOf="@id/tvFundacionAsignada"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Tipo alimento -->
+        <TextView
+            android:id="@+id/tvTipoAlimento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tipo de alimento: Perecedero"
+            android:textColor="#444444"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintTop_toBottomOf="@id/tvDireccion"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="Descripción de la donación"
+            android:textColor="#444444"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintTop_toBottomOf="@id/tvTipoAlimento"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Botón eliminar y calificación -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvDescripcion"
+            app:layout_constraintStart_toStartOf="@id/tvProductos"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/btnEliminarDonacion"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5252"
+                android:text="Eliminar"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/tvCalificacion"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Calificación: 4/5"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
